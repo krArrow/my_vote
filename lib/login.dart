@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:loginuicolors/register.dart';
+import 'package:loginuicolors/login.dart';
+import 'package:loginuicolors/registeredpage.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -97,11 +100,25 @@ class _MyLoginState extends State<MyLogin> {
                   SizedBox(
                     height: 30,
                   ),
-                  ElevatedButton(
-                    onPressed: () => {},
-                    child: Text('Register',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700)),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xAAB19AF5),
+                        borderRadius: BorderRadius.circular(20)),
+                    padding: EdgeInsets.only(
+                        top: 10, left: 20, right: 20, bottom: 10),
+                    child: TextButton(
+                      onPressed: () => {
+                        Navigator.pushNamed(
+                          context,
+                          "registeredpage",
+                        )
+                      },
+                      child: Text('Register',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700)),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -109,7 +126,12 @@ class _MyLoginState extends State<MyLogin> {
                   Row(children: [
                     Text("Already have an account?"),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            "register",
+                          );
+                        },
                         child: Text(
                           " Sign In",
                         ))
