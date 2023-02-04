@@ -4,11 +4,13 @@ import 'package:loginuicolors/login.dart';
 import 'package:loginuicolors/registeredpage.dart';
 
 class MyLogin extends StatefulWidget {
-  const MyLogin({Key? key}) : super(key: key);
-
+  const MyLogin({Key? key, required this.controller}) : super(key: key);
+  final TextEditingController controller;
   @override
   _MyLoginState createState() => _MyLoginState();
 }
+
+var obscureText = true;
 
 class _MyLoginState extends State<MyLogin> {
   @override
@@ -16,7 +18,8 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+              image: AssetImage("assets/icon.png"),
+              alignment: Alignment.topCenter),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -69,8 +72,27 @@ class _MyLoginState extends State<MyLogin> {
                     height: 10,
                   ),
                   TextField(
-                      obscureText: true,
+                      controller: widget.controller,
+                      obscureText: obscureText,
                       decoration: InputDecoration(
+                          prefixIcon:
+                              Icon(Icons.lock, color: Color(0XFF4FBF26)),
+                          suffixIcon: GestureDetector(
+                            onTap: () => {
+                              setState(() {
+                                obscureText = !obscureText;
+                              }),
+                            },
+                            child: obscureText
+                                ? Icon(
+                                    Icons.visibility_off,
+                                    color: Colors.grey,
+                                  )
+                                : Icon(
+                                    Icons.visibility,
+                                    color: Color(0XFF4FBF26),
+                                  ),
+                          ),
                           fillColor: Colors.lightBlue.shade50,
                           filled: true,
                           hintText: "Enter Password",

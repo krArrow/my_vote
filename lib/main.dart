@@ -6,10 +6,14 @@ import 'package:loginuicolors/registeredpage.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MyLogin(),
+    home: MyLogin(
+      controller: TextEditingController(),
+    ),
     routes: {
-      'register': (context) => MyRegister(),
-      'login': (context) => MyLogin(),
+      'register': (context) => MyRegisterPage(),
+      'login': (context) => MyLogin(
+            controller: TextEditingController(),
+          ),
       'registeredpage': (context) => MyForwardPage(),
     },
   ));
