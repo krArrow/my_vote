@@ -1,22 +1,20 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:loginuicolors/login.dart';
+import 'package:loginuicolors/register.dart';
+import 'package:loginuicolors/registeredpage.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.cyan,
-          title: Text("My Vote"),
-          
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyLogin(
+      controller: TextEditingController(),
+    ),
+    routes: {
+      'register': (context) => MyRegisterPage(),
+      'login': (context) => MyLogin(
+            controller: TextEditingController(),
           ),
-        body: Container(child: Text("My App")),),
-    );
-  }
+      'registeredpage': (context) => MyForwardPage(),
+    },
+  ));
 }
