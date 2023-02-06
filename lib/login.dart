@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:loginuicolors/register.dart';
-import 'package:loginuicolors/login.dart';
-import 'package:loginuicolors/registeredpage.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key, required this.controller}) : super(key: key);

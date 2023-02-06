@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:loginuicolors/login.dart';
 
 class MyRegisterPage extends StatefulWidget {
   const MyRegisterPage({Key? key}) : super(key: key);
